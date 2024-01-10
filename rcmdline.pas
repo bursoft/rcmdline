@@ -754,7 +754,8 @@ begin
     end else begin
       if not weAreDoneInterpreting and Assigned(FOnOptionInterpretation) then begin
         name := '';
-        FOnOptionInterpretation(self, name, a, args, argpos);
+        value := a;
+        FOnOptionInterpretation(self, name, value, args, argpos);
         if name <> '' then begin
           setPropertyFromStringValue(findPropertyIndex(name, true, false, false), value);
           continue;
